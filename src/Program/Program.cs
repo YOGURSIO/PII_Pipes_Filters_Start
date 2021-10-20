@@ -1,6 +1,7 @@
 ﻿using System;
 using CompAndDel.Pipes;
 using CompAndDel.Filters;
+using TwitterUCU;
 
 namespace CompAndDel
 {
@@ -25,6 +26,9 @@ namespace CompAndDel
 
             IPicture image = psi.Send(picture);
             provider.SavePicture(image, @".\mmmcerveza.jpg");
+
+            var twitter = new TwitterImage();
+            Console.WriteLine(twitter.PublishToTwitter("Camblor", @".\mmmcerveza.jpg"));
 
         }
     }
